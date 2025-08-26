@@ -1,3 +1,12 @@
+# Project-specific
+node_modules
+.features-gen
+playwright-report
+test-results
+.vite
+dist
+coverage
+
 # Logs
 logs
 *.log

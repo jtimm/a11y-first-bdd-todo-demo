@@ -1,0 +1,31 @@
+:root {
+  --bg: #0b1020;
+  --card: #121a33;
+  --ink: #e9eef7;
+  --muted: #9fb0cf;
+  --accent: #64b5f6;
+}
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body { margin: 0; font-family: system-ui, sans-serif; color: var(--ink); background: linear-gradient(120deg, #0b1020, #121a33); }
+main { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
+.card { background: var(--card); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 1rem 1.25rem; box-shadow: 0 8px 30px rgba(0,0,0,0.25); }
+h1 { font-size: 1.6rem; margin: 0 0 1rem; }
+h2 { font-size: 1.2rem; margin: 0 0 0.75rem; }
+label { display: block; margin: 0.25rem 0; color: var(--muted); }
+input[type="text"], select { width: 100%; padding: 0.55rem 0.7rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.05); color: var(--ink); }
+button { padding: 0.5rem 0.8rem; border-radius: 999px; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.08); color: var(--ink); cursor: pointer; }
+button:hover { background: rgba(255,255,255,0.12); }
+.row { display: grid; grid-template-columns: 1fr 180px 140px; gap: 0.6rem; align-items: end; }
+.actions { display: flex; gap: 0.4rem; }
+ul { list-style: none; padding: 0; margin: 0; }
+li { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 0.6rem; padding: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+li:last-child { border-bottom: none; }
+.badge { font-size: 0.75rem; color: #0b1020; background: var(--accent); padding: 0.15rem 0.5rem; border-radius: 6px; }
+.status { min-height: 1.25rem; color: var(--muted); }
+.spinner { display: inline-flex; gap: 0.5rem; align-items: center; }
+.spinner[hidden] { display: none; }
+.dialog-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: none; align-items: center; justify-content: center; }
+.dialog-backdrop[data-open="true"] { display: flex; }
+.dialog { width: 380px; background: var(--card); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1rem 1.25rem; transform: scale(0.97); opacity: 0; transition: transform 180ms ease, opacity 180ms ease; }
+.dialog[data-open="true"] { transform: scale(1); opacity: 1; }
