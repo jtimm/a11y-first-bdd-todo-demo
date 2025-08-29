@@ -1,0 +1,44 @@
+---
+alwaysApply: true
+---
+
+# Rules for a11y-first-bdd-todo-demo repository
+
+This repository is an accessibility-first BDD ToDo demo, focusing on robust
+and maintainable end-to-end testing with Playwright, BDD, and semantic UI.
+
+## GENERAL GUIDELINES:
+
+1.  Prioritize accessibility locators (`role`, `name`) when interacting with the UI
+    in tests. Avoid brittle CSS selectors.
+2.  All UI components should use native HTML semantics primarily, with ARIA
+    only used when absolutely necessary to enhance accessibility.
+3.  Test scenarios are defined in Gherkin (`.feature` files) and should be
+    treated as executable documentation.
+4.  When writing or modifying tests, leverage the existing generic step
+    definitions and modular utilities (`a11y.ts`, `waiters.ts`) to maintain
+    consistency and scalability.
+5.  For synchronization in tests, use "suffix waits" (e.g., "...and wait for
+    the spinner to disappear") that map to Playwright wait conditions,
+    instead of arbitrary timeouts.
+
+## FILE AND DIRECTORY STRUCTURE:
+
+*   `src/`: Contains the React application's source code.
+    *   `src/components/`: Reusable React components for the ToDo application.
+    *   `src/App.tsx`: Main application component.
+    *   `src/main.tsx`: Entry point for the React application.
+    *   `src/styles.css`: Global styles for the application.
+*   `tests/`: Contains all end-to-end test artifacts.
+    *   `tests/features/`: Gherkin feature files (`.feature`) defining test scenarios.
+    *   `tests/steps/`: TypeScript files implementing step definitions for Gherkin features.
+        *   `tests/steps/generic.assertions.ts`: Generic assertion steps.
+        *   `tests/steps/generic.interactions.ts`: Generic interaction steps.
+        *   `tests/steps/generic.navigation.ts`: Generic navigation steps.
+    *   `tests/support/`: Utility modules for testing.
+        *   `tests/support/a11y.ts`: Accessibility-focused locators and helpers.
+        *   `tests/support/waiters.ts`: Reusable wait strategies for Playwright.
+    *   `tests/bdd.ts`: Playwright BDD configuration for step loading.
+*   `playwright.config.ts`: Playwright test runner configuration.
+*   `package.json`: Project dependencies and scripts.
+*   `README.md`: Comprehensive overview of the project's purpose and key concepts.
